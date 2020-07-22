@@ -23,7 +23,7 @@ generateEL.addEventListener('click', function(event) {
     const hasSymbol = symbolsEL.checked;
 
     
-    if((length > 40) && (length < 128))
+    if((length > 40) && (length < 129))
     {
         alert("Due to password length the password cannot be displayed in the normal box. Your password is " + generatePassword(length, hasLower, hasUpper, hasNumber, hasSymbol));
     }
