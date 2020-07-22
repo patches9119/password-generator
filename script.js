@@ -22,7 +22,16 @@ generateEL.addEventListener('click', function(event) {
     const hasNumber = numbersEL.checked;
     const hasSymbol = symbolsEL.checked;
 
-    resultEL.innerText = generatePassword(length, hasLower, hasUpper, hasNumber, hasSymbol);
+    
+    if(length > 40)
+    {
+        alert("Due to password length the password cannot be displayed in the normal box. Your password is " + generatePassword(length, hasLower, hasUpper, hasNumber, hasSymbol));
+    }
+    else
+    {
+        resultEL.innerText = generatePassword(length, hasLower, hasUpper, hasNumber, hasSymbol);
+    }
+    
 });
 
 
@@ -59,13 +68,13 @@ function generatePassword(length, lower, upper, number, symbol) {
 
     if((length < 8) || (length > 128))
     {
-        return 'null';
+        return 'Please select a length of at least 8 and less than 128.';
     }
 
     const typesArr = [{lower}, {upper}, {number}, {symbol}].filter(item => Object.values(item)[0]);
 
     if(typesCount === 0) {
-		return 'null';
+		return 'Please select at least one option.';
 	}
 
     for(let i = 0; i < length; i+= typesCount)
